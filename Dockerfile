@@ -27,3 +27,5 @@ RUN cd /opt && git clone https://github.com/quarto-dev/quarto-cli
 RUN cd /opt/quarto-cli && ./configure.sh
 ENV PATH="${PATH}:/opt/quarto-cli/package/dist/bin"
 
+RUN mkdir /experimentology
+WORKDIR /experimentology
