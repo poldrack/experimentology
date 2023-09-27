@@ -55,3 +55,8 @@ docker-build: guard-DOCKER_USERNAME
 shell: guard-DOCKER_USERNAME
 	docker run -it --entrypoint=bash -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology
 
+docker-render-html:
+	docker run -it --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-ug-html
+
+docker-render-pdf:
+	docker run -it --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-ug-pdf
