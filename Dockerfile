@@ -26,9 +26,12 @@ RUN Rscript install_packages.R
 #RUN cd /opt && git clone https://github.com/quarto-dev/quarto-cli
 #RUN cd /opt/quarto-cli && ./configure.sh
 #ENV PATH="${PATH}:/opt/quarto-cli/package/dist/bin"
+RUN apt-get update && apt-get install -y texlive texlive-publishers \
+   texlive-fonts-extra texlive-latex-extra \
+   texlive-humanities lmodern texlive-xetex \
+   texlive-plain-generic
 RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.450/quarto-1.3.450-linux-amd64.deb
 RUN dpkg -i quarto-1.3.450-linux-amd64.deb
-RUN quarto install tinytex
 COPY setup_fonts.sh /setup_fonts.sh
 RUN bash setup_fonts.sh
 
