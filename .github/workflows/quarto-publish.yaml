@@ -16,4 +16,4 @@ jobs:
       options: --cpus 1
     steps:
       - name: render 
-        run: make render-ug-html
+        run: cd /experimentology; make render-ug-html
