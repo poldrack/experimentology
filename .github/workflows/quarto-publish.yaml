@@ -12,8 +12,8 @@ jobs:
       ports:
         - 80
       volumes:
-        - my_docker_volume:/experimentology
+        - experimentology:/experimentology
       options: --cpus 1
     steps:
       - name: render 
-        run: cd /experimentology; make render-ug-html
+        run: cd experimentology; make render-ug-html
