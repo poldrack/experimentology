@@ -1,0 +1,26 @@
+book:
+  title: "Experimentology"
+  subtitle: "An Open Science Approach to Experimental Psychology Methods"
+  author:
+    - Michael C. Frank
+    - Mika Braginsky
+    - Julie Cachia
+    - Nicholas Coles
+    - Tom E. Hardwicke
+    - Robert Hawkins
+    - Maya Mathur
+    - Rondeline Williams
+  date: last-modified
+  repo-url: https://github.com/langcog/experimentology
+  repo-actions: [source, issue]
+  downloads: [pdf]
+  sidebar:
+    style: "docked"
+  chapters:
+    - index.qmd
+    - part: "Foundations"
+      chapters:
+        - 001-experiments.qmd
+    - part: "Execution"
+      chapters:
+        - 011-prereg.qmd

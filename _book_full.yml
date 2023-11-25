@@ -1,17 +1,6 @@
-project:
-  title: "Experimentology for Undergrads"
-  output-dir: docs
-
-format:
-  html:
-    theme:
-      light: [flatly, resources/scss/global.scss]
-      dark: [darkly, resources/scss/global.scss]
-    published-title: "Updated"
-
 book:
   title: "Experimentology"
-  subtitle: "An Open Science Approach to Experimental Psychology Methods for Undergraduates"
+  subtitle: "An Open Science Approach to Experimental Psychology Methods"
   author:
     - Michael C. Frank
     - Mika Braginsky
@@ -21,12 +10,10 @@ book:
     - Robert Hawkins
     - Maya Mathur
     - Rondeline Williams
-    - Adapted for undergraduates by Russ Poldrack
   date: last-modified
   repo-url: https://github.com/langcog/experimentology
   repo-actions: [source, issue]
   downloads: [pdf]
-  back-to-top-navigation: true
   sidebar:
     style: "docked"
   chapters:
@@ -58,10 +45,10 @@ book:
         - 015-viz.qmd
         - 016-meta.qmd
         - 017-conclusions.qmd
-  # appendices:
-  #   - 100-instructors.qmd
-  #   # - 100-appendices.qmd # only for latex output
-  #   - 101-github.qmd     # only for html output
-  #   - 102-rmarkdown.qmd  # only for html output
-  #   - 103-tidyverse.qmd  # only for html output
-  #   - 104-ggplot.qmd     # only for html output
+  appendices:
+    - 100-instructors.qmd
+    # - 101-appendices.qmd # only for latex output
+    - 101-github.qmd     # only for html output
+    - 102-rmarkdown.qmd  # only for html output
+    - 103-tidyverse.qmd  # only for html output
+    - 104-ggplot.qmd     # only for html output

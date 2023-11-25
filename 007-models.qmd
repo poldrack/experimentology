@@ -255,8 +255,8 @@ d_ex <- tibble(x = x,
 
 ggplot(d_ex, aes(x = x, y = y)) + 
   geom_line() + 
-  geom_line(data = filter(d_ex, x >= -.5, x <= .5), col = "blue", size = 2) + 
-  geom_line(data = filter(d_ex, x >= 3.5, x <= 4.5), col = "red", size = 2) +
+  geom_line(data = filter(d_ex, x >= -.5, x <= .5), col = "blue", linewidth = 2) + 
+  geom_line(data = filter(d_ex, x >= 3.5, x <= 4.5), col = "red", linewidth = 2) +
   geom_segment(aes(x = -.5, y = 0, xend = .5, yend = 0),
                   arrow = arrow(length = unit(0.25, "cm")), col = "blue") + 
   geom_segment(aes(x = 3.5, y = 0, xend = 4.5, yend = 0),

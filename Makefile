@@ -33,12 +33,12 @@ render-ug-pdf: clean
 	quarto render --profile undergrad
 
 render-ug-html: clean
-	-rm -rf _site-undergrad
+	-rm -rf docs
 	cp _quarto_html.yml _quarto.yml
 	quarto render --profile undergrad
 
 render-ug-all: clean
-	-rm -rf _site-undergrad
+	-rm -rf docs
 	cp _quarto_all.yml _quarto.yml
 	quarto render --profile undergrad
 
@@ -61,16 +61,20 @@ docker-build: guard-DOCKER_USERNAME
 
 # add -p 8888:8888 for jupyter
 shell: guard-DOCKER_USERNAME
+	docker run -it --user 1002:1002 --entrypoint=bash -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology
+
+root-shell: guard-DOCKER_USERNAME
 	docker run -it --entrypoint=bash -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology
 
+
 docker-render-html:
-	docker run -it --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-html
+	docker run -it --user 1002:1002 --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-html
 
 docker-render-pdf:
-	docker run -it --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-pdf
+	docker run -it --user 1002:1002 --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-pdf
 
 docker-render-ug-html:
-	docker run -it --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-ug-html
+	docker run -it --user 1002:1002 --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-ug-html
 
 docker-render-ug-pdf:
-	docker run -it --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-ug-pdf
+	docker run -it --user 1002:1002 --entrypoint="" -v $(current_dir):/experimentology $(DOCKER_USERNAME)/experimentology make render-ug-pdf

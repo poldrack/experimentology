@@ -1,6 +1,6 @@
 {{< include _setup.qmd >}}
 
-# Replication {#sec-replication}
+# Reproducibility {#sec-replication}
 
 ::: {.callout-note title="learning goals"}
 * Define and distinguish reproducibility and replicability

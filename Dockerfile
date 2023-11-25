@@ -1,4 +1,4 @@
-FROM r-base:4.2.3
+FROM r-base:4.3.2
 
 # install necessary system libraries
 RUN apt-get update && apt-get -y install cmake \
@@ -29,11 +29,19 @@ RUN Rscript install_packages.R
 RUN apt-get update && apt-get install -y texlive texlive-publishers \
    texlive-fonts-extra texlive-latex-extra \
    texlive-humanities lmodern texlive-xetex \
-   texlive-plain-generic
+   texlive-plain-generic texlive-fonts-recommended
 RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.450/quarto-1.3.450-linux-amd64.deb
 RUN dpkg -i quarto-1.3.450-linux-amd64.deb
 COPY setup_fonts.sh /setup_fonts.sh
 RUN bash setup_fonts.sh
+COPY 09-texlive-fonts.conf /etc/fonts/conf.avail/09-texlive-fonts.conf
+RUN cd /etc/fonts/conf.d; ln -s ../conf.avail/09-texlive-fonts.conf
+RUN fc-cache -s
 
+#RUN tlmgr init-usertree
+#RUN tlmgr install sourcesanspro
+
+RUN groupadd --gid 1002 experimentology
+RUN useradd -m -s /bin/bash -g 1002 -u 1002 experimentology 
 RUN mkdir /experimentology
 WORKDIR /experimentology

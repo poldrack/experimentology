@@ -1,14 +1,3 @@
-project:
-  title: "Experimentology for Undergrads"
-  output-dir: docs
-
-format:
-  html:
-    theme:
-      light: [flatly, resources/scss/global.scss]
-      dark: [darkly, resources/scss/global.scss]
-    published-title: "Updated"
-
 book:
   title: "Experimentology"
   subtitle: "An Open Science Approach to Experimental Psychology Methods for Undergraduates"
