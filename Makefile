@@ -27,20 +27,14 @@ render-html:
 	cp _quarto_html.yml _quarto.yml
 	quarto render 
 
-render-ug-pdf: clean
-	-rm -rf _site-undergrad
-	cp _quarto_pdf.yml _quarto.yml
-	quarto render --profile undergrad
+render-ug-pdf:
+	echo "NOTE: PDF RENDERING NOT WORKING!"
+	-rm index.aux index.tex index.log index.lot index.toc
+	quarto render --profile undergrad,pdf
 
 render-ug-html: clean
 	-rm -rf docs
-	cp _quarto_html.yml _quarto.yml
-	quarto render --profile undergrad
-
-render-ug-all: clean
-	-rm -rf docs
-	cp _quarto_all.yml _quarto.yml
-	quarto render --profile undergrad
+	quarto render --profile undergrad,html
 
 render-ug-trace: clean
 	-rm -rf _site-undergrad
